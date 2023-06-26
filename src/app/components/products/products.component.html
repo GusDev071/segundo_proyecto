@@ -1,0 +1,47 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a href="">
+                <img src="assets/img/bienes.png" alt="">
+                <h4>Todos los productos</h4>
+            </a>
+        </div>
+        <div class="item">
+            <a href="">
+                <img src="assets/img/comercio-electronico.png" alt="">
+                <h4>Electronicos</h4>
+            </a>
+        </div>
+        <div class="item">
+            <a href="">
+                <img src="assets/img/productos-cosmeticos.png" alt="">
+                <h4>Belleza</h4>
+            </a>
+        </div>
+        <div class="item">
+            <a href="">
+                <img src="assets/img/joyeria.png" alt="">
+                <h4>Joyería</h4>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of productList">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.description}}</p>
+                <p><strong>Precio:</strong>${{item.price}}</p>
+                <button class="btn btn-primary" (click)="addToCart(item)">Añadir al carrito</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div class="progress-container">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <br>
+    <span *ngIf="loading" class="loading-text">Cargando...</span>
+</div>
